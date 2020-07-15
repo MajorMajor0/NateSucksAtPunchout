@@ -1,0 +1,42 @@
+﻿@page "/charts"
+
+@using ChartJs.Blazor.Charts
+@using ChartJs.Blazor.ChartJS.ScatterChart
+
+<h2>Charts</h2>
+<div>
+	<ChartJsScatterChart @ref="cumulativeWinningsChart" Config="@cumulativeWinningsConfig" Width="600" Height="300" />
+</div>
+
+<div>
+	<ChartJsScatterChart @ref="normalizedWinningsChart" Config="@normalizedWinningsConfig" Width="600" Height="300" />
+</div>
+
+
+@*<Button @onclick="UpdateChart">Add random point</Button>*@
+
+@code
+{
+	private ScatterConfig cumulativeWinningsConfig;
+	private ChartJsScatterChart cumulativeWinningsChart;
+
+	private ScatterConfig normalizedWinningsConfig;
+	private ChartJsScatterChart normalizedWinningsChart;
+
+	private readonly Random _rnd = new Random();
+
+	protected override async Task OnInitializedAsync()
+	{
+		using (DataModel.BigGameStatsContext context = new DataModel.BigGameStatsContext())
+		{
+			cumulativeWinningsConfig = LoadConfig("Cumulative Winnings");
+			var cumulativeWinningDataSets = GetCumulativeWinningDataSets(context);
+			cumulativeWinningsConfig.Data.Datasets.AddRange(cumulativeWinningDataSets);
+
+			double norm = 200;
+			normalizedWinningsConfig = LoadConfig($"Winnings Normalized to ${norm}");
+			var normalizedWinningDataSets = GetNormalizedCumulativeWinningDataSets(context, norm);
+			normalizedWinningsConfig.Data.Datasets.AddRange(normalizedWinningDataSets);
+		}
+	}
+}
