@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ChartJs.Blazor.ChartJS.ScatterChart;
+
 using System.Collections.Generic;
-using ChartJs.Blazor.ChartJS.ScatterChart;
 
 namespace NateSucksAtPunchout.DataModel
 {

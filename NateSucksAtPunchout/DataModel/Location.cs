@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace NateSucksAtPunchout.DataModel
 {
-    public partial class Location
+	public partial class Location
     {
         public Location()
         {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace NateSucksAtPunchout.DataModel
+﻿namespace NateSucksAtPunchout.DataModel
 {
-    public partial class Kill
+	public partial class Kill
     {
         public long BigGame { get; set; }
         public string Killed { get; set; }

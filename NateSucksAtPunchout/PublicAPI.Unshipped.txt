@@ -1,0 +1,5 @@
+﻿NateSucksAtPunchout.DataModel.Player
+NateSucksAtPunchout.DataModel.Player.GetCumulativeWinnings() -> System.Collections.Generic.List<ChartJs.Blazor.ChartJS.Common.Point>
+NateSucksAtPunchout.DataModel.Player.GetNormalizedCumulativeHours(double normalizedTo) -> System.Collections.Generic.List<ChartJs.Blazor.ChartJS.Common.Point>
+NateSucksAtPunchout.DataModel.Player.GetNormalizedCumulativeWinnings(double normalizedTo) -> System.Collections.Generic.List<ChartJs.Blazor.ChartJS.Common.Point>
+NateSucksAtPunchout.DataModel.Player.GetWins() -> System.Collections.Generic.List<ChartJs.Blazor.ChartJS.Common.Point>
