@@ -5,11 +5,19 @@
 
 <h2>Charts</h2>
 <div>
-	<ChartJsScatterChart @ref="cumulativeWinningsChart" Config="@cumulativeWinningsConfig" Width="600" Height="300" />
+	<ChartJsScatterChart @ref="cumulativeWinningsChart" Config="@cumulativeWinningsConfig" Width="@width" Height="@height" />
 </div>
 
 <div>
-	<ChartJsScatterChart @ref="normalizedWinningsChart" Config="@normalizedWinningsConfig" Width="600" Height="300" />
+	<ChartJsScatterChart @ref="normalizedWinningsChart" Config="@normalizedWinningsConfig"  Width="@width" Height="@height"  />
+</div>
+
+<div>
+	<ChartJsScatterChart @ref="winsChart" Config="@winsConfig"  Width="@width" Height="@height"  />
+</div>
+
+<div>
+	<ChartJsScatterChart @ref="timeChart" Config="@timeConfig"  Width="@width" Height="@height"  />
 </div>
 
 
@@ -23,7 +31,17 @@
 	private ScatterConfig normalizedWinningsConfig;
 	private ChartJsScatterChart normalizedWinningsChart;
 
+	private ScatterConfig winsConfig;
+	private ChartJsScatterChart winsChart;
+
+	private ScatterConfig timeConfig;
+	private ChartJsScatterChart timeChart;
+
 	private readonly Random _rnd = new Random();
+
+	private readonly int width = 300;
+	private readonly int height = 150;
+
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -37,6 +55,15 @@
 			normalizedWinningsConfig = LoadConfig($"Winnings Normalized to ${norm}");
 			var normalizedWinningDataSets = GetNormalizedCumulativeWinningDataSets(context, norm);
 			normalizedWinningsConfig.Data.Datasets.AddRange(normalizedWinningDataSets);
+
+			winsConfig = LoadConfig("Cumulative Wins");
+			var winsDataSets = GetWinsDataSets(context);
+			winsConfig.Data.Datasets.AddRange(winsDataSets);
+
+			double norm2 = 12;
+			timeConfig = LoadConfig($"Cumulative Hours Normalized to {norm2}");
+			var timeDataSets = GetNormalizedCumulativeHoursDataSets(context, norm2);
+			timeConfig.Data.Datasets.AddRange(timeDataSets);
 		}
 	}
 }
