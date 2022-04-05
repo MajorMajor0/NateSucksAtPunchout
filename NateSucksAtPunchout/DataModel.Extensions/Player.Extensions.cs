@@ -18,11 +18,11 @@ namespace NateSucksAtPunchout.DataModel
 
 			var finishes = Finishes.ToArray();
 
-			List<Point> points = new List<Point>();
+			List<Point> points = new();
 
 			for (int i = 0; i < n; i++)
 			{
-				Point point = new Point { X = finishes[i].Year };
+				Point point = new() { X = finishes[i].Year };
 
 				for (int j = 0; j <= i; j++)
 				{
@@ -45,13 +45,13 @@ namespace NateSucksAtPunchout.DataModel
 
 			var finishes = Finishes.ToArray();
 
-			List<Point> points = new List<Point>();
+			List<Point> points = new();
 
 			// Calculate normalized total for each year
 			for (int i = 0; i < n; i++)
 			{
 				// X axis is the year
-				Point point = new Point { X = finishes[i].Year };
+				Point point = new() { X = finishes[i].Year };
 
 				// Run over years up to and including year i
 				for (int j = 0; j <= i; j++)
@@ -77,13 +77,13 @@ namespace NateSucksAtPunchout.DataModel
 
 			var finishes = Finishes.ToArray();
 
-			List<Point> points = new List<Point>();
+			List<Point> points = new();
 
 			// Calculate normalized total for each year
 			for (int i = 0; i < n; i++)
 			{
 				// X axis is the year
-				Point point = new Point { X = finishes[i].Year };
+				Point point = new() { X = finishes[i].Year };
 
 				// Run over years up to and including year i
 				for (int j = 0; j <= i; j++)
@@ -112,13 +112,13 @@ namespace NateSucksAtPunchout.DataModel
 
 			var finishes = Finishes.ToArray();
 
-			List<Point> points = new List<Point>();
+			List<Point> points = new();
 
 			// Calculate normalized total for each year
 			for (int i = 0; i < n; i++)
 			{
 				// X axis is the year
-				Point point = new Point { X = finishes[i].Year };
+				Point point = new() { X = finishes[i].Year };
 
 				// Run over years up to and including year i
 				for (int j = 0; j <= i; j++)
